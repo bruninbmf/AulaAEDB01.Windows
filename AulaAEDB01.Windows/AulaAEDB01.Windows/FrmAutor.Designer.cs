@@ -1,0 +1,191 @@
+﻿namespace AulaAEDB01.Windows
+{
+    partial class FrmAutor
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            LblCodigo = new Label();
+            BtnSalvar = new Button();
+            BtnFechar = new Button();
+            GrdItens = new DataGridView();
+            Codigo = new DataGridViewTextBoxColumn();
+            Nome = new DataGridViewTextBoxColumn();
+            BtnAlterar = new DataGridViewButtonColumn();
+            BtnExcluir = new DataGridViewButtonColumn();
+            LblNome = new Label();
+            label2 = new Label();
+            TxtCodigo = new TextBox();
+            TxtNome = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)GrdItens).BeginInit();
+            SuspendLayout();
+            // 
+            // LblCodigo
+            // 
+            LblCodigo.Location = new Point(0, 0);
+            LblCodigo.Name = "LblCodigo";
+            LblCodigo.Size = new Size(100, 23);
+            LblCodigo.TabIndex = 8;
+            // 
+            // BtnSalvar
+            // 
+            BtnSalvar.Location = new Point(35, 99);
+            BtnSalvar.Name = "BtnSalvar";
+            BtnSalvar.Size = new Size(122, 44);
+            BtnSalvar.TabIndex = 4;
+            BtnSalvar.Text = "Salvar";
+            BtnSalvar.UseVisualStyleBackColor = true;
+            BtnSalvar.Click += BtnSalvar_Click_1;
+            // 
+            // BtnFechar
+            // 
+            BtnFechar.Location = new Point(183, 99);
+            BtnFechar.Name = "BtnFechar";
+            BtnFechar.Size = new Size(122, 44);
+            BtnFechar.TabIndex = 5;
+            BtnFechar.Text = "Fechar";
+            BtnFechar.UseVisualStyleBackColor = true;
+            BtnFechar.Click += BtnFechar_Click;
+            // 
+            // GrdItens
+            // 
+            GrdItens.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            GrdItens.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GrdItens.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nome, BtnAlterar, BtnExcluir });
+            GrdItens.Location = new Point(0, 149);
+            GrdItens.Name = "GrdItens";
+            GrdItens.RowHeadersWidth = 51;
+            GrdItens.Size = new Size(1165, 336);
+            GrdItens.TabIndex = 6;
+            GrdItens.CellClick += GrdItens_CellClick_1;
+            GrdItens.CellContentClick += GrdItens_CellContentClick;
+            // 
+            // Codigo
+            // 
+            Codigo.DataPropertyName = "Codigo";
+            Codigo.HeaderText = "Código";
+            Codigo.MaxInputLength = 4;
+            Codigo.MinimumWidth = 6;
+            Codigo.Name = "Codigo";
+            Codigo.Width = 125;
+            // 
+            // Nome
+            // 
+            Nome.DataPropertyName = "Nome";
+            Nome.HeaderText = "Nome";
+            Nome.MaxInputLength = 50;
+            Nome.MinimumWidth = 6;
+            Nome.Name = "Nome";
+            Nome.Width = 200;
+            // 
+            // BtnAlterar
+            // 
+            BtnAlterar.DataPropertyName = "BtnAlterar";
+            BtnAlterar.HeaderText = "Alterar";
+            BtnAlterar.MinimumWidth = 6;
+            BtnAlterar.Name = "BtnAlterar";
+            BtnAlterar.Width = 125;
+            // 
+            // BtnExcluir
+            // 
+            BtnExcluir.DataPropertyName = "BtnExcluir";
+            BtnExcluir.HeaderText = "Excluir";
+            BtnExcluir.MinimumWidth = 6;
+            BtnExcluir.Name = "BtnExcluir";
+            BtnExcluir.Width = 125;
+            // 
+            // LblNome
+            // 
+            LblNome.AutoSize = true;
+            LblNome.Location = new Point(35, 14);
+            LblNome.Name = "LblNome";
+            LblNome.Size = new Size(58, 20);
+            LblNome.TabIndex = 9;
+            LblNome.Text = "Codigo";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(133, 14);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 20);
+            label2.TabIndex = 10;
+            label2.Text = "Nome";
+            // 
+            // TxtCodigo
+            // 
+            TxtCodigo.Location = new Point(35, 46);
+            TxtCodigo.Name = "TxtCodigo";
+            TxtCodigo.Size = new Size(58, 27);
+            TxtCodigo.TabIndex = 11;
+            // 
+            // TxtNome
+            // 
+            TxtNome.Location = new Point(133, 46);
+            TxtNome.MaxLength = 50;
+            TxtNome.Name = "TxtNome";
+            TxtNome.Size = new Size(465, 27);
+            TxtNome.TabIndex = 12;
+            // 
+            // FrmAutor
+            // 
+            AcceptButton = BtnSalvar;
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = BtnFechar;
+            ClientSize = new Size(1155, 488);
+            Controls.Add(TxtNome);
+            Controls.Add(TxtCodigo);
+            Controls.Add(label2);
+            Controls.Add(LblNome);
+            Controls.Add(GrdItens);
+            Controls.Add(BtnFechar);
+            Controls.Add(BtnSalvar);
+            Controls.Add(LblCodigo);
+            Name = "FrmAutor";
+            Text = "Cadastro de Autor";
+            FormClosed += FrmAutor_FormClosed;
+            Load += FrmAutor_Load_1;
+            ((System.ComponentModel.ISupportInitialize)GrdItens).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+        private Label LblCodigo;
+        private Button BtnSalvar;
+        private Button BtnFechar;
+        private DataGridView GrdItens;
+        private DataGridViewTextBoxColumn Codigo;
+        private DataGridViewTextBoxColumn Nome;
+        private DataGridViewButtonColumn BtnAlterar;
+        private DataGridViewButtonColumn BtnExcluir;
+        private Label LblNome;
+        private Label label2;
+        private TextBox TxtCodigo;
+        private TextBox TxtNome;
+    }
+}
