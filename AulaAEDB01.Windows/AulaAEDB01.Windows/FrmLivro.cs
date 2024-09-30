@@ -11,33 +11,33 @@ using System.Windows.Forms;
 
 namespace AulaAEDB01.Windows
 {
-    public partial class FrmIdioma : Form
+    public partial class FrmLivro : Form
     {
         private tipoValidacao Incluir = tipoValidacao.salvar;
-        public FrmIdioma()
+        public FrmLivro()
         {
             InitializeComponent();
         }
-        private void FrmIdioma_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmLivro_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ((FrmMenu)this.MdiParent).MnuIdioma.Enabled = true;
-            ((FrmMenu)this.MdiParent).MnSIdioma.Enabled = true;
+            ((FrmMenu)this.MdiParent).MnuLivros.Enabled = true;
+            ((FrmMenu)this.MdiParent).MnSLivros.Enabled = true;
             ((FrmMenu)this.MdiParent).LblDisplay.Text = "";
 
         }
         private void CarregaGrid()
         {
             GrdItens.AutoGenerateColumns = false;
-            GrdItens.DataSource = Idioma.ListarTodos();
+            GrdItens.DataSource = Livro.ListarTodos();
         }
-        private void FrmIdioma_Load(object sender, EventArgs e)
+        private void FrmLivro_Load(object sender, EventArgs e)
         {
             CarregaGrid();
         }
 
-        private void FrmIdioma_Activated(object sender, EventArgs e)
+        private void FrmLivro_Activated(object sender, EventArgs e)
         {
-            ((FrmMenu)this.MdiParent).LblDisplay.Text = "Cadastro de Idiomas";
+            ((FrmMenu)this.MdiParent).LblDisplay.Text = "Cadastro de Livros";
         }
 
         private void BtnFechar_Click(object sender, EventArgs e)
@@ -76,7 +76,7 @@ namespace AulaAEDB01.Windows
             if (ValidaControles(Incluir))
                 if (Incluir == tipoValidacao.salvar)
                 {
-                    Idioma oIdioma = new Idioma()
+                    Livro oLivro = new Livro()
                     {
                         //id = int.Parse(TxtCodigo.Text),
                         Nome = TxtNome.Text
@@ -84,13 +84,13 @@ namespace AulaAEDB01.Windows
 
                     try
                     {
-                        oIdioma.Incluir();
+                        oLivro.Incluir();
                         CarregaGrid();
                         LimpaControles();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Um erro ocorreu ao incluir o Idioma: {ex.Message}.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Um erro ocorreu ao incluir o Livro: {ex.Message}.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         TxtCodigo.Focus();
                     }
 
@@ -98,24 +98,24 @@ namespace AulaAEDB01.Windows
                 }
                 else
                 {
-                    Idioma oIdioma = new Idioma()
+                    Livro oLivro = new Livro()
                     {
                         id = int.Parse(TxtCodigo.Text),
                         Nome = TxtNome.Text
                     };
                     try
                     {
-                        Idioma.Alterar(oIdioma);
+                        Livro.Alterar(oLivro);
                         CarregaGrid();
                         LimpaControles();
                         Incluir = tipoValidacao.salvar;
                         TxtCodigo.Enabled = false;
                         TxtCodigo.Text = "";
-                        MessageBox.Show($"Idioma com codigo:({oIdioma.id}) editado com sucesso.", "Editar", MessageBoxButtons.OK);
+                        MessageBox.Show($"Livro com codigo:({oLivro.id}) editado com sucesso.", "Editar", MessageBoxButtons.OK);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Um erro ocorreu ao alterar o Idioma: {ex.Message}.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Um erro ocorreu ao alterar o Livro: {ex.Message}.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         TxtCodigo.Focus();
                     }
                 }
@@ -126,7 +126,7 @@ namespace AulaAEDB01.Windows
 
             if (GrdItens.Rows[e.RowIndex].DataBoundItem != null)
             {
-                Idioma objSelecionado = (Idioma)GrdItens.Rows[e.RowIndex].DataBoundItem;
+                Livro objSelecionado = (Livro)GrdItens.Rows[e.RowIndex].DataBoundItem;
                 if (GrdItens.Columns[e.ColumnIndex].Name == "BtnAlterar")
                 {
                     //Clicou no botão alterar

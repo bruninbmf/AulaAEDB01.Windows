@@ -87,6 +87,7 @@
             BtnSalvar.TabIndex = 15;
             BtnSalvar.Text = "&Salvar";
             BtnSalvar.UseVisualStyleBackColor = true;
+            BtnSalvar.Click += BtnSalvar_Click_1;
             // 
             // BtnFechar
             // 
@@ -109,6 +110,7 @@
             GrdItens.RowHeadersWidth = 51;
             GrdItens.Size = new Size(1019, 252);
             GrdItens.TabIndex = 17;
+            GrdItens.CellClick += GrdItens_CellClick;
             // 
             // Codigo
             // 
@@ -160,6 +162,10 @@
             Controls.Add(LblNome);
             Name = "FrmUsuario";
             Text = "Gerir Usuário";
+            Activated += FrmUsuario_Activated;
+            FormClosed += FrmUsuario_FormClosed;
+            Load += FrmUsuario_Load;
+            Click += BtnFechar_Click;
             ((System.ComponentModel.ISupportInitialize)GrdItens).EndInit();
             ResumeLayout(false);
             PerformLayout();

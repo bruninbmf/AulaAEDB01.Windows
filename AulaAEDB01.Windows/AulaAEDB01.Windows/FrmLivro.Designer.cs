@@ -1,6 +1,6 @@
 ﻿namespace AulaAEDB01.Windows
 {
-    partial class FrmLivros
+    partial class FrmLivro
     {
         /// <summary>
         /// Required designer variable.
@@ -53,10 +53,11 @@
             GrdItens.RowHeadersWidth = 51;
             GrdItens.Size = new Size(1019, 252);
             GrdItens.TabIndex = 8;
+            GrdItens.CellClick += GrdItens_CellClick;
             // 
             // Codigo
             // 
-            Codigo.DataPropertyName = "Codigo";
+            Codigo.DataPropertyName = "id";
             Codigo.HeaderText = "Código";
             Codigo.MaxInputLength = 4;
             Codigo.MinimumWidth = 6;
@@ -133,6 +134,7 @@
             BtnSalvar.TabIndex = 15;
             BtnSalvar.Text = "&Salvar";
             BtnSalvar.UseVisualStyleBackColor = true;
+            BtnSalvar.Click += BtnSalvar_Click_1;
             // 
             // BtnFechar
             // 
@@ -143,8 +145,9 @@
             BtnFechar.TabIndex = 14;
             BtnFechar.Text = "&Fechar";
             BtnFechar.UseVisualStyleBackColor = true;
+            BtnFechar.Click += BtnFechar_Click;
             // 
-            // FrmLivros
+            // FrmLivro
             // 
             AcceptButton = BtnSalvar;
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -158,8 +161,11 @@
             Controls.Add(BtnSalvar);
             Controls.Add(BtnFechar);
             Controls.Add(GrdItens);
-            Name = "FrmLivros";
+            Name = "FrmLivro";
             Text = "Cadastro de Livros";
+            Activated += FrmLivro_Activated;
+            FormClosed += FrmLivro_FormClosed;
+            Load += FrmLivro_Load;
             ((System.ComponentModel.ISupportInitialize)GrdItens).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -168,15 +174,15 @@
         #endregion
 
         private DataGridView GrdItens;
-        private DataGridViewTextBoxColumn Codigo;
-        private DataGridViewTextBoxColumn Nome;
-        private DataGridViewButtonColumn BtnAlterar;
-        private DataGridViewButtonColumn BtnExcluir;
         private TextBox TxtNome;
         private TextBox TxtCodigo;
         private Label label2;
         private Label LblNome;
         private Button BtnSalvar;
         private Button BtnFechar;
+        private DataGridViewTextBoxColumn Codigo;
+        private DataGridViewTextBoxColumn Nome;
+        private DataGridViewButtonColumn BtnAlterar;
+        private DataGridViewButtonColumn BtnExcluir;
     }
 }

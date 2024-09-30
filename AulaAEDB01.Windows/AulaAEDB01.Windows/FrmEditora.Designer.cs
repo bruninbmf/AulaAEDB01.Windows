@@ -53,10 +53,11 @@
             GrdItens.RowHeadersWidth = 51;
             GrdItens.Size = new Size(1019, 252);
             GrdItens.TabIndex = 7;
+            GrdItens.CellClick += GrdItens_CellClick;
             // 
             // Codigo
             // 
-            Codigo.DataPropertyName = "Codigo";
+            Codigo.DataPropertyName = "id";
             Codigo.HeaderText = "Código";
             Codigo.MaxInputLength = 4;
             Codigo.MinimumWidth = 6;
@@ -107,6 +108,7 @@
             BtnSalvar.TabIndex = 9;
             BtnSalvar.Text = "&Salvar";
             BtnSalvar.UseVisualStyleBackColor = true;
+            BtnSalvar.Click += BtnSalvar_Click_1;
             // 
             // LblNome
             // 
@@ -160,6 +162,9 @@
             Controls.Add(GrdItens);
             Name = "FrmEditora";
             Text = "Cadastro de Editora";
+            Activated += FrmEditora_Activated;
+            FormClosed += FrmEditora_FormClosed;
+            Load += FrmEditora_Load;
             ((System.ComponentModel.ISupportInitialize)GrdItens).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -168,15 +173,15 @@
         #endregion
 
         private DataGridView GrdItens;
-        private DataGridViewTextBoxColumn Codigo;
-        private DataGridViewTextBoxColumn Nome;
-        private DataGridViewButtonColumn BtnAlterar;
-        private DataGridViewButtonColumn BtnExcluir;
         private Button BtnFechar;
         private Button BtnSalvar;
         private Label LblNome;
         private Label label2;
         private TextBox TxtCodigo;
         private TextBox TxtNome;
+        private DataGridViewTextBoxColumn Codigo;
+        private DataGridViewTextBoxColumn Nome;
+        private DataGridViewButtonColumn BtnAlterar;
+        private DataGridViewButtonColumn BtnExcluir;
     }
 }

@@ -53,6 +53,7 @@
             GrdItens.RowHeadersWidth = 51;
             GrdItens.Size = new Size(1019, 252);
             GrdItens.TabIndex = 8;
+            GrdItens.CellClick += GrdItens_CellClick;
             // 
             // Codigo
             // 
@@ -133,6 +134,7 @@
             BtnSalvar.TabIndex = 15;
             BtnSalvar.Text = "&Salvar";
             BtnSalvar.UseVisualStyleBackColor = true;
+            BtnSalvar.Click += BtnSalvar_Click_1;
             // 
             // BtnFechar
             // 
@@ -143,6 +145,7 @@
             BtnFechar.TabIndex = 14;
             BtnFechar.Text = "&Fechar";
             BtnFechar.UseVisualStyleBackColor = true;
+            BtnFechar.Click += BtnFechar_Click;
             // 
             // FrmIdioma
             // 
@@ -160,6 +163,9 @@
             Controls.Add(GrdItens);
             Name = "FrmIdioma";
             Text = "Cadastro de Idioma";
+            Activated += FrmIdioma_Activated;
+            FormClosed += FrmIdioma_FormClosed;
+            Load += FrmIdioma_Load;
             ((System.ComponentModel.ISupportInitialize)GrdItens).EndInit();
             ResumeLayout(false);
             PerformLayout();

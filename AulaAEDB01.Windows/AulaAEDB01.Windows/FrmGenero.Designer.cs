@@ -116,7 +116,6 @@
             GrdItens.Size = new Size(1011, 254);
             GrdItens.TabIndex = 6;
             GrdItens.CellClick += GrdItens_CellClick;
-            GrdItens.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Id
             // 
@@ -125,6 +124,7 @@
             Id.MaxInputLength = 4;
             Id.MinimumWidth = 6;
             Id.Name = "Id";
+            Id.ReadOnly = true;
             Id.Width = 125;
             // 
             // Nome
@@ -134,6 +134,7 @@
             Nome.MaxInputLength = 50;
             Nome.MinimumWidth = 6;
             Nome.Name = "Nome";
+            Nome.ReadOnly = true;
             Nome.Width = 200;
             // 
             // BtnAlterar

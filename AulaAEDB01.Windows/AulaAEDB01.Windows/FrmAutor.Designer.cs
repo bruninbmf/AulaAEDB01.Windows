@@ -47,14 +47,15 @@
             // 
             LblCodigo.Location = new Point(0, 0);
             LblCodigo.Name = "LblCodigo";
-            LblCodigo.Size = new Size(100, 23);
+            LblCodigo.Size = new Size(88, 17);
             LblCodigo.TabIndex = 8;
             // 
             // BtnSalvar
             // 
-            BtnSalvar.Location = new Point(35, 99);
+            BtnSalvar.Location = new Point(31, 74);
+            BtnSalvar.Margin = new Padding(3, 2, 3, 2);
             BtnSalvar.Name = "BtnSalvar";
-            BtnSalvar.Size = new Size(122, 44);
+            BtnSalvar.Size = new Size(107, 33);
             BtnSalvar.TabIndex = 4;
             BtnSalvar.Text = "Salvar";
             BtnSalvar.UseVisualStyleBackColor = true;
@@ -62,9 +63,10 @@
             // 
             // BtnFechar
             // 
-            BtnFechar.Location = new Point(183, 99);
+            BtnFechar.Location = new Point(160, 74);
+            BtnFechar.Margin = new Padding(3, 2, 3, 2);
             BtnFechar.Name = "BtnFechar";
-            BtnFechar.Size = new Size(122, 44);
+            BtnFechar.Size = new Size(107, 33);
             BtnFechar.TabIndex = 5;
             BtnFechar.Text = "Fechar";
             BtnFechar.UseVisualStyleBackColor = true;
@@ -75,10 +77,11 @@
             GrdItens.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GrdItens.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GrdItens.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nome, BtnAlterar, BtnExcluir });
-            GrdItens.Location = new Point(0, 149);
+            GrdItens.Location = new Point(0, 112);
+            GrdItens.Margin = new Padding(3, 2, 3, 2);
             GrdItens.Name = "GrdItens";
             GrdItens.RowHeadersWidth = 51;
-            GrdItens.Size = new Size(1165, 336);
+            GrdItens.Size = new Size(1019, 252);
             GrdItens.TabIndex = 6;
             GrdItens.CellClick += GrdItens_CellClick_1;
             GrdItens.CellContentClick += GrdItens_CellContentClick;
@@ -120,45 +123,47 @@
             // LblNome
             // 
             LblNome.AutoSize = true;
-            LblNome.Location = new Point(35, 14);
+            LblNome.Location = new Point(31, 10);
             LblNome.Name = "LblNome";
-            LblNome.Size = new Size(58, 20);
+            LblNome.Size = new Size(46, 15);
             LblNome.TabIndex = 9;
             LblNome.Text = "Codigo";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(133, 14);
+            label2.Location = new Point(116, 10);
             label2.Name = "label2";
-            label2.Size = new Size(50, 20);
+            label2.Size = new Size(40, 15);
             label2.TabIndex = 10;
             label2.Text = "Nome";
             // 
             // TxtCodigo
             // 
             TxtCodigo.Enabled = false;
-            TxtCodigo.Location = new Point(35, 46);
+            TxtCodigo.Location = new Point(31, 34);
+            TxtCodigo.Margin = new Padding(3, 2, 3, 2);
             TxtCodigo.Name = "TxtCodigo";
-            TxtCodigo.Size = new Size(58, 27);
+            TxtCodigo.Size = new Size(51, 23);
             TxtCodigo.TabIndex = 11;
             TxtCodigo.TextChanged += TxtCodigo_TextChanged;
             // 
             // TxtNome
             // 
-            TxtNome.Location = new Point(133, 46);
+            TxtNome.Location = new Point(116, 34);
+            TxtNome.Margin = new Padding(3, 2, 3, 2);
             TxtNome.MaxLength = 50;
             TxtNome.Name = "TxtNome";
-            TxtNome.Size = new Size(465, 27);
+            TxtNome.Size = new Size(407, 23);
             TxtNome.TabIndex = 12;
             // 
             // FrmAutor
             // 
             AcceptButton = BtnSalvar;
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = BtnFechar;
-            ClientSize = new Size(1155, 488);
+            ClientSize = new Size(1011, 366);
             Controls.Add(TxtNome);
             Controls.Add(TxtCodigo);
             Controls.Add(label2);
@@ -167,8 +172,10 @@
             Controls.Add(BtnFechar);
             Controls.Add(BtnSalvar);
             Controls.Add(LblCodigo);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FrmAutor";
             Text = "Cadastro de Autor";
+            Activated += FrmAutor_Activated;
             FormClosed += FrmAutor_FormClosed;
             Load += FrmAutor_Load_1;
             ((System.ComponentModel.ISupportInitialize)GrdItens).EndInit();

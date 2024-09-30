@@ -42,9 +42,6 @@ namespace AulaAEDB01.Windows.Model
                 oDr.Close();
                 return Retorno;
             }
-            //SqlConnection oCn = DataHelper.Conexao();
-
-            //oCn.Close();
         }
         public static Autor? Seleciona(int Codigo)
         {
@@ -74,17 +71,7 @@ namespace AulaAEDB01.Windows.Model
                 SqlCommand comando = new SqlCommand( SQL, oCn );
                 comando.ExecuteNonQuery();
             }
-            //Autor? oAutorSelecionado = Autor.Seleciona(this.Codigo);
-            //if (oAutorSelecionado != null)
-            //{
-            //    throw new Exception($"O Código informado está sendo usado no Autor {oAutorSelecionado.Nome}.");
-
-            //}
-            //else
-            //{
-            //    DataHekper1.ListaAutor.Add(this);
-
-            //}
+            
         }
 
         public static void Alterar(Autor oAutor)

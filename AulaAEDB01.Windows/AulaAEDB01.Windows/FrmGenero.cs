@@ -20,7 +20,7 @@ namespace AulaAEDB01.Windows
     //    excluir
     //}
 
-    public partial class FrmGenero : Form
+  public partial class FrmGenero : Form
     {
 
         private tipoValidacao Incluir = tipoValidacao.salvar;
@@ -75,12 +75,12 @@ namespace AulaAEDB01.Windows
                 }
             }
 
-            else if (int.TryParse(TxtCodigo.Text, out id) == false)
-            {
-                MessageBox.Show("O campo Código não é numérico.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TxtCodigo.Focus();
-                return false;
-            }
+            //else if (int.TryParse(TxtCodigo.Text, out Id) == false)
+            //{
+            //    MessageBox.Show("O campo Código não é numérico.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    TxtCodigo.Focus();
+            //    return false;
+            //}
 
             return true;
         }
@@ -88,10 +88,6 @@ namespace AulaAEDB01.Windows
         {
             TxtCodigo.Text = "";
             TxtNome.Text = "";
-        }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void BtnSalvar_Click(object sender, EventArgs e)
@@ -134,7 +130,7 @@ namespace AulaAEDB01.Windows
                         Incluir = tipoValidacao.salvar;
                         TxtCodigo.Enabled = false;
                         TxtCodigo.Text = "";
-                        MessageBox.Show($"Autor com codigo:({oGenero.id}) editado com sucesso.", "Editar", MessageBoxButtons.OK);
+                        MessageBox.Show($"Genero com codigo:({oGenero.id}) editado com sucesso.", "Editar", MessageBoxButtons.OK);
                     }
                     catch (Exception ex)
                     {
