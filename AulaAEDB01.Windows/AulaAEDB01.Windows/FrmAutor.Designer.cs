@@ -137,10 +137,12 @@
             // 
             // TxtCodigo
             // 
+            TxtCodigo.Enabled = false;
             TxtCodigo.Location = new Point(35, 46);
             TxtCodigo.Name = "TxtCodigo";
             TxtCodigo.Size = new Size(58, 27);
             TxtCodigo.TabIndex = 11;
+            TxtCodigo.TextChanged += TxtCodigo_TextChanged;
             // 
             // TxtNome
             // 

@@ -18,11 +18,10 @@ namespace AulaAEDB01.Windows.Mock
             for (int i = 1; i < 11; i++)
             {
                 Genero oGenero = new Genero();
-                oGenero.Codigo = i;
+                oGenero.id = i;
                 oGenero.Nome = $"Gênero {i}";
                 oLista.Add(oGenero);
             }
-
 
             DataHelper.ListaGenero = oLista;
         }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AulaAEDB01.Windows.Mock;
 using AulaAEDB01.Windows.Helper;
 using AulaAEDB01.Windows.Model;
+using AulaAEDB01.Windows.Helper;
 
 namespace AulaAEDB01.Windows.Mock
 {
@@ -23,8 +24,7 @@ namespace AulaAEDB01.Windows.Mock
                 oLista.Add(oAutor);
             }
 
-
-            DataHekper1.ListaAutor = oLista;
+            DataHelper.ListaAutor = oLista;
         }
     }
 }

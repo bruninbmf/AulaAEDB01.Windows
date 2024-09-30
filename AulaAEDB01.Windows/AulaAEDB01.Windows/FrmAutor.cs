@@ -11,9 +11,16 @@ using System.Windows.Forms;
 
 namespace AulaAEDB01.Windows
 {
+    public enum tipoValidacao
+    {
+        salvar = 1,
+        editar = 2,
+        excluir
+    }
+
     public partial class FrmAutor : Form
     {
-        private bool Incluir = true;
+        private tipoValidacao Incluir = tipoValidacao.salvar;
         public FrmAutor()
         {
             InitializeComponent();
@@ -45,7 +52,7 @@ namespace AulaAEDB01.Windows
         {
             this.Close();
         }
-        private bool ValidaControles()
+        private bool ValidaControles(tipoValidacao tipoValidacao)
         {
             int Codigo;
             if (TxtNome.Text.Trim() == "")
@@ -54,25 +61,28 @@ namespace AulaAEDB01.Windows
                 TxtNome.Focus();
                 return false;
             }
-            if (TxtCodigo.Text.Trim() == "")
+            if (tipoValidacao != tipoValidacao.salvar)
             {
-                MessageBox.Show("O campo Código é de preenchimento obrigatório.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TxtCodigo.Focus();
-                return false;
-            }
+                if (TxtCodigo.Text.Trim() == "")
+                {
+                    MessageBox.Show("O campo Código é de preenchimento obrigatório.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TxtCodigo.Focus();
+                    return false;
+                }
 
-            if (int.TryParse(TxtCodigo.Text, out Codigo) == false)
-            {
-                MessageBox.Show("O campo Código não é numérico.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TxtCodigo.Focus();
-                return false;
+                if (int.TryParse(TxtCodigo.Text, out Codigo) == false)
+                {
+                    MessageBox.Show("O campo Código não é numérico.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TxtCodigo.Focus();
+                    return false;
+                }
             }
 
             return true;
         }
         private void LimpaControles()
         {
-            TxtCodigo.Text = "";
+            //TxtCodigo.Text = "";
             TxtNome.Text = "";
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -82,12 +92,12 @@ namespace AulaAEDB01.Windows
 
         private void BtnSalvar_Click_1(object sender, EventArgs e)
         {
-            if (ValidaControles())
-                if (Incluir)
+            if (ValidaControles(Incluir))
+                if (Incluir == tipoValidacao.salvar)
                 {
                     Autor oAutor = new Autor()
                     {
-                        Codigo = int.Parse(TxtCodigo.Text),
+                        //Codigo = int.Parse(TxtCodigo.Text),
                         Nome = TxtNome.Text
                     };
 
@@ -116,8 +126,10 @@ namespace AulaAEDB01.Windows
                         Autor.Alterar(oAutor);
                         CarregaGrid();
                         LimpaControles();
-                        Incluir = true;
-                        TxtCodigo.Enabled = true;
+                        Incluir = tipoValidacao.salvar;
+                        TxtCodigo.Enabled = false;
+                        TxtCodigo.Text = "";
+                        MessageBox.Show($"Autor com codigo:({oAutor.Codigo}) editado com sucesso.", "Editar", MessageBoxButtons.OK);
                     }
                     catch (Exception ex)
                     {
@@ -140,10 +152,11 @@ namespace AulaAEDB01.Windows
                     TxtNome.Text = objSelecionado.Nome;
                     TxtCodigo.Enabled = false;
                     TxtNome.Focus();
-                    Incluir = false;
+                    Incluir = tipoValidacao.editar;
                 }
                 else if (GrdItens.Columns[e.ColumnIndex].Name == "BtnExcluir")
                 {
+                    Incluir = tipoValidacao.excluir;
                     //Clicou no botão excluir
                     if (MessageBox.Show("Confirme a exclusão.", "Deseja mesmo Excluir?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
@@ -171,6 +184,9 @@ namespace AulaAEDB01.Windows
 
         }
 
+        private void TxtCodigo_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

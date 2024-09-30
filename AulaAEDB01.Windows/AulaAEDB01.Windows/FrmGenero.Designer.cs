@@ -35,7 +35,7 @@
             BtnSalvar = new Button();
             BtnFechar = new Button();
             GrdItens = new DataGridView();
-            Codigo = new DataGridViewTextBoxColumn();
+            Id = new DataGridViewTextBoxColumn();
             Nome = new DataGridViewTextBoxColumn();
             BtnAlterar = new DataGridViewButtonColumn();
             BtnExcluir = new DataGridViewButtonColumn();
@@ -44,6 +44,7 @@
             // 
             // TxtCodigo
             // 
+            TxtCodigo.Enabled = false;
             TxtCodigo.Location = new Point(35, 46);
             TxtCodigo.MaxLength = 4;
             TxtCodigo.Name = "TxtCodigo";
@@ -103,7 +104,7 @@
             // 
             GrdItens.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GrdItens.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GrdItens.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nome, BtnAlterar, BtnExcluir });
+            GrdItens.Columns.AddRange(new DataGridViewColumn[] { Id, Nome, BtnAlterar, BtnExcluir });
             GrdItens.Location = new Point(1, 149);
             GrdItens.Name = "GrdItens";
             GrdItens.RowHeadersWidth = 51;
@@ -112,14 +113,14 @@
             GrdItens.CellClick += GrdItens_CellClick;
             GrdItens.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // Codigo
+            // Id
             // 
-            Codigo.DataPropertyName = "Codigo";
-            Codigo.HeaderText = "Código";
-            Codigo.MaxInputLength = 4;
-            Codigo.MinimumWidth = 6;
-            Codigo.Name = "Codigo";
-            Codigo.Width = 125;
+            Id.DataPropertyName = "Id";
+            Id.HeaderText = "Código";
+            Id.MaxInputLength = 4;
+            Id.MinimumWidth = 6;
+            Id.Name = "Id";
+            Id.Width = 125;
             // 
             // Nome
             // 
@@ -177,9 +178,14 @@
         private Button BtnSalvar;
         private Button BtnFechar;
         private DataGridView GrdItens;
-        private DataGridViewTextBoxColumn Codigo;
+        private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Nome;
         private DataGridViewButtonColumn BtnAlterar;
         private DataGridViewButtonColumn BtnExcluir;
+
+        //public FrmGenero(TextBox txtCodigo)
+        //{
+        //    TxtCodigo = txtCodigo;
+        //}
     }
 }

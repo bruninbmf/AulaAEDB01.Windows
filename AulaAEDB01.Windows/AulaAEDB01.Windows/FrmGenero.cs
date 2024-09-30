@@ -91,7 +91,7 @@ namespace AulaAEDB01.Windows
                 {
                     Genero oGenero = new Genero()
                     {
-                        Codigo = int.Parse(TxtCodigo.Text),
+                        id = int.Parse(TxtCodigo.Text),
                         Nome = TxtNome.Text
                     };
 
@@ -113,7 +113,7 @@ namespace AulaAEDB01.Windows
                 {
                     Genero oGenero = new Genero()
                     {
-                        Codigo = int.Parse(TxtCodigo.Text),
+                        id = int.Parse(TxtCodigo.Text),
                         Nome = TxtNome.Text
                     };
                     try
@@ -141,7 +141,7 @@ namespace AulaAEDB01.Windows
                 if (GrdItens.Columns[e.ColumnIndex].Name == "BtnAlterar")
                 {
                     //Clicou no botão alterar
-                    TxtCodigo.Text = objSelecionado.Codigo.ToString();
+                    TxtCodigo.Text = objSelecionado.id.ToString();
                     TxtNome.Text = objSelecionado.Nome;
                     TxtCodigo.Enabled = false;
                     TxtNome.Focus();
