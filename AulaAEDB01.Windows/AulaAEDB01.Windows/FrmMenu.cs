@@ -36,13 +36,22 @@ namespace AulaAEDB01.Windows
         {
             FrmAutor oFrm = new FrmAutor();
             oFrm.MdiParent = this;
-            MenuAutor.Enabled = false;
+            MnuAutor.Enabled = false;
             MnSAutor.Enabled = false;
             oFrm.Show();
         }
         private void MnSAutor_Click(object sender, EventArgs e)
         {
-            MenuAutor_Click(sender, e );
+            MenuAutor_Click(sender, e);
+        }
+
+        private void MenuEditora_Click(object sender, EventArgs e)
+        {
+            FrmEditora oFrm = new FrmEditora();
+            oFrm.MdiParent = this;
+            MnuAutor.Enabled = false;
+            MnSAutor.Enabled = false;
+            oFrm.Show();
         }
     }
 }

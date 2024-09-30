@@ -17,7 +17,12 @@ namespace AulaAEDB01.Windows.Helper
         public static List<Autor> ListaAutor { get; set; }
         public static SqlConnection Conexao()
         {
-            string strconnection = "Data Source=BRUNO\\SQLEXPRESS02;Integrated Security=True;Initial Catalog=Libraria;Connect Timeout=30;Trust Server Certificate=True;";
+            //pcarthur
+            string strconnection = "Data Source=ARTHUR-PC\\SQLEXPRESS;Initial Catalog=Livraria;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;";
+            //pcarthur
+            //pcbruno
+            //string strconnection = "Data Source=BRUNO\\SQLEXPRESS02;Integrated Security=True;Initial Catalog=Libraria;Connect Timeout=30;Trust Server Certificate=True;";
+            //pcbruno
             SqlConnection oCn = new SqlConnection(strconnection);
             oCn.Open();
             return oCn;

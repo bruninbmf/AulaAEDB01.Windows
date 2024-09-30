@@ -28,7 +28,7 @@ namespace AulaAEDB01.Windows
 
         private void FrmAutor_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ((FrmMenu)this.MdiParent).MenuAutor.Enabled = true;
+            ((FrmMenu)this.MdiParent).MnuAutor.Enabled = true;
             ((FrmMenu)this.MdiParent).MnSAutor.Enabled = true;
             ((FrmMenu)this.MdiParent).LblDisplay.Text = "";
         }

@@ -13,10 +13,17 @@ using System.Windows.Forms;
 
 namespace AulaAEDB01.Windows
 {
+    //public enum tipoValidacao
+    //{
+    //    salvar = 1,
+    //    editar = 2,
+    //    excluir
+    //}
+
     public partial class FrmGenero : Form
     {
 
-        private bool Incluir = true;
+        private tipoValidacao Incluir = tipoValidacao.salvar;
 
         public FrmGenero()
         {
@@ -49,23 +56,26 @@ namespace AulaAEDB01.Windows
         {
             this.Close();
         }
-        private bool ValidaControles()
+        private bool ValidaControles(tipoValidacao tipoValidacao)
         {
-            int Codigo;
+            int id;
             if (TxtNome.Text.Trim() == "")
             {
                 MessageBox.Show("O campo Nome é de preenchimento obrigatório.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtNome.Focus();
                 return false;
             }
-            else if (TxtCodigo.Text.Trim() == "")
+            if (tipoValidacao != tipoValidacao.salvar)
             {
-                MessageBox.Show("O campo Código é de preenchimento obrigatório.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TxtCodigo.Focus();
-                return false;
+                if (TxtCodigo.Text.Trim() == "")
+                {
+                    MessageBox.Show("O campo Código é de preenchimento obrigatório.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TxtCodigo.Focus();
+                    return false;
+                }
             }
 
-            else if (int.TryParse(TxtCodigo.Text, out Codigo) == false)
+            else if (int.TryParse(TxtCodigo.Text, out id) == false)
             {
                 MessageBox.Show("O campo Código não é numérico.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtCodigo.Focus();
@@ -86,12 +96,12 @@ namespace AulaAEDB01.Windows
 
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            if (ValidaControles())
-                if (Incluir)
+            if (ValidaControles(Incluir))
+                if (Incluir == tipoValidacao.salvar)
                 {
                     Genero oGenero = new Genero()
                     {
-                        id = int.Parse(TxtCodigo.Text),
+                        //id = int.Parse(TxtCodigo.Text),
                         Nome = TxtNome.Text
                     };
 
@@ -121,8 +131,10 @@ namespace AulaAEDB01.Windows
                         Genero.Alterar(oGenero);
                         CarregaGrid();
                         LimpaControles();
-                        Incluir = true;
-                        TxtCodigo.Enabled = true;
+                        Incluir = tipoValidacao.salvar;
+                        TxtCodigo.Enabled = false;
+                        TxtCodigo.Text = "";
+                        MessageBox.Show($"Autor com codigo:({oGenero.id}) editado com sucesso.", "Editar", MessageBoxButtons.OK);
                     }
                     catch (Exception ex)
                     {
@@ -145,10 +157,11 @@ namespace AulaAEDB01.Windows
                     TxtNome.Text = objSelecionado.Nome;
                     TxtCodigo.Enabled = false;
                     TxtNome.Focus();
-                    Incluir = false;
+                    Incluir = tipoValidacao.editar;
                 }
                 else if (GrdItens.Columns[e.ColumnIndex].Name == "BtnExcluir")
                 {
+                    Incluir = tipoValidacao.excluir;
                     //Clicou no botão excluir
                     if (MessageBox.Show("Confirme a exclusão.", "Deseja mesmo Excluir?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
@@ -160,6 +173,10 @@ namespace AulaAEDB01.Windows
 
             }
         }
+        //private void FrmGenero_Load(object sender, EventArgs e)
+        //{
+        //    CarregaGrid();
+        //}
 
         private void TxtCodigo_TextChanged(object sender, EventArgs e)
         {

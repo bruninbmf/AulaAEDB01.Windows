@@ -74,19 +74,31 @@ namespace AulaAEDB01.Windows.Model
 
         public static void Alterar(Genero oGenero)
         {
-            Genero? GeneroColecao = Seleciona(oGenero.id);
-            if (GeneroColecao == null)
+            using (var oCn = DataHelper.Conexao())
             {
-                throw new Exception($"O Código informado não existe mais no contexto.");
+                string SQL = $"update Autor set Nome='{oGenero.Nome.Replace("'", "")}' where id={oGenero.id}";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                comando.ExecuteNonQuery();
             }
-            else
-            {
-                GeneroColecao.Nome = oGenero.Nome;
-            }
+            //Autor? AutorColecao = Seleciona(oAutor.Codigo);
+            //if (AutorColecao == null)
+            //{
+            //    throw new Exception($"O Código informado não existe mais no contexto.");
+            //}
+            //else
+            //{
+            //    AutorColecao.Nome = oAutor.Nome;
+            //}
         }
         public void Excluir()
         {
-            DataHelper.ListaGenero.Remove(this);
+            using (var oCn = DataHelper.Conexao())
+            {
+                string SQL = $"delete from Genero where id={this.id}";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                comando.ExecuteNonQuery();
+            }
+            //DataHekper1.ListaAutor.Remove(this);
         }
     }
 }
